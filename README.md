@@ -6,60 +6,57 @@
 
 | Column             | Type                | Options                   |
 |--------------------|---------------------|---------------------------|
-|nickname.           |string型             | NOT NULL        null:false|
-|email               |string型             | NOT NULL        null:false|
-|passward            |string型             | NOT NULL        null:false|
-|first name.         |string型             | NOT NULL        null:false|
-|family name         |string型             | NOT NULL        null:false|
-|first name kana     |string型             | NOT NULL        null:false|
-|family name kana    |string型             | NOT NULL        null:false|
-|year                |string型             | NOT NULL        null:false|
-|month               |string型             | NOT NULL        null:false|
-|day                 |string型             | NOT NULL        null:false|
+|nickname            |string               |                 null:false|
+|email               |string               |                 null:false|
+|passward            |string               |                 null:false|
+|first name          |string               |                 null:false|
+|family name         |string               |                 null:false|
+|first name kana     |string               |                 null:false|
+|family name kana    |string               |                 null:false|
+|year                |date               |                 null:false|
+|month               |date               |                 null:false|
+|day                 |date               |                 null:false|
 
 
 ### Association
 
-* has_many :product
+* has_many :products
 * has_many :comments
 
-## product table
+## products table
 
 | Column                              | Type       | Options                        |
 |-------------------------------------|------------|--------------------------------|
-|title                                |string型     | NOT NULL             null:false|
-|explanationn                         |string型     | NOT NULL             null:false|
-|category                             |string型     | NOT NULL             null:false|
-|condition                            |string型     | NOT NULL             null:false|
-|delivery                             |string型     | NOT NULL             null:false|
-|sender                               |string型     | NOT NULL             null:false|
-|day                                  |string型     | NOT NULL             null:false|
-|price                                |string型     | NOT NULL             null:false|
-|commission                           |string型     | NOT NULL             null:false|
-|profit                               |string型     | NOT NULL             null:false|
-|user                                 |references型 | NOT NULL                外部キー|
+|title                                |string      |                        null:false|
+|explanationn                         |text        |                        null:false|
+|category                             |integer     |                        null:false|
+|condition                            |integer     |                        null:false|
+|delivery                             |integer     |                        null:false|
+|sender                               |integer     |                        null:false|
+|day                                  |integer     |                        null:false|
+|price                                |integer     |                        null:false|
+|user                                 |references  |                                   |
 
 ### Association
 
-- belongs_to :user
-- has_many :purchase
+- belongs_to :users
+- has_many :adresses
 
-## purchase table
+## adresses table
 
 | Column           | Type        | Options                        |
 |------------------|-------------|--------------------------------|
-|          |string型     | NOT NULL             null:false|
-|expiration month  |string型     | NOT NULL             null:false|
-|expiration  year  |string型     | NOT NULL             null:false|
-|security code     |string型     | NOT NULL             null:false|
-|zipcode           |string型     | NOT NULL             null:false|
-|prefecture        |string型     | NOT NULL             null:false|
-|city              |string型     | NOT NULL             null:false|
-|house_number      |string型     | NOT NULL             null:false|
-|building_name     |string型     | NOT NULL             null:false|
-|phone_number      |string型     | NOT NULL             null:false|
-|user              |references型 | NOT NULL                外部キー|
-|product           |references型 | NOT NULL                外部キー|
+|                  |string     |                        null:false|
+|expiration month  |string     |                        null:false|
+|expiration  year  |string     |                        null:false|
+|security code     |string     |                        null:false|
+|zipcode           |string     |                        null:false|
+|prefecture        |string     |                        null:false|
+|city              |string     |                        null:false|
+|house_number      |string     |                        null:false|
+|building_name     |string     |                        null:false|
+|phone_number      |string     |                        null:false|
+|orders           |references |                                   |
 
 ### Association
 
