@@ -18,8 +18,8 @@
 
 ### Association
 
-- has_many :product
-- has_many :order
+- has_many :products
+- has_many :orders
 
 ## products table
 
@@ -37,7 +37,7 @@
 
 ### Association
 
-- belongs_to :users
+- belongs_to :user
 - has_one :order
 
 ## addresses table
@@ -62,4 +62,4 @@
 
 - belongs_to :user
 - belongs_to :product
-- has_one :adress
+- has_one :address
