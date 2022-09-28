@@ -7,19 +7,18 @@
 | Column             | Type                | Options                   |
 |--------------------|---------------------|---------------------------|
 |nickname            |string               |                 null:false|
-|email               |string               |UNIQUE           null:false|
+|email               |string               |UNIQUE:true      null:false|
 |encrypted_passward  |string               |                 null:false|
 |first name          |string               |                 null:false|
 |family name         |string               |                 null:false|
 |first name kana     |string               |                 null:false|
 |family name kana    |string               |                 null:false|
-|day                 |date               |                 null:false|
+|birthday            |date                 |                 null:false|
 
 
 ### Association
 
 * has_many :products
-* has_many :comments
 
 ## products table
 
@@ -27,24 +26,25 @@
 |-------------------------------------|------------|--------------------------------|
 |title                                |string      |                        null:false|
 |explanationn                         |text        |                        null:false|
-|category                             |integer     |                        null:false|
+|category_id                          |integer     |                        null:false|
 |condition                            |integer     |                        null:false|
 |delivery_id                          |integer     |                        null:false|
 |sender_id                            |integer     |                        null:false|
 |day_id                               |integer     |                        null:false|
-|price_id                              |integer     |                        null:false|
-|user_id                              |references  |                                   |
+|price                              |integer     |                        null:false|
+|user                              |references  |                                   |
 
 ### Association
 
-- belongs_to :users
-- has_many :adresses
+- belongs_to :user
+- has_many :item
 
 ## adresses table
 
 | Column           | Type        | Options                        |
 |------------------|-------------|--------------------------------|
-|prefecture_id     |string     |                        null:false|
+|post_code         |string     |                        null:false|
+|prefecture_id     |integer     |                        null:false|
 |city              |string     |                        null:false|
 |house_number      |string     |                        null:false|
 |building_name     |string     |                                  |
