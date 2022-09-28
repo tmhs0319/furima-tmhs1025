@@ -7,7 +7,7 @@
 | Column             | Type                | Options                   |
 |--------------------|---------------------|---------------------------|
 |nickname            |string               |                 null:false|
-|email               |string               |UNIQUE:true      null:false|
+|email               |string               |unique: true     null:false|
 |encrypted_passward  |string               |                 null:false|
 |first name          |string               |                 null:false|
 |family name         |string               |                 null:false|
@@ -18,7 +18,8 @@
 
 ### Association
 
-* has_many :products
+- has_many :product
+- has_many :order
 
 ## products table
 
@@ -27,19 +28,19 @@
 |title                                |string      |                        null:false|
 |explanationn                         |text        |                        null:false|
 |category_id                          |integer     |                        null:false|
-|condition                            |integer     |                        null:false|
+|condition_id                           |integer     |                        null:false|
 |delivery_id                          |integer     |                        null:false|
-|sender_id                            |integer     |                        null:false|
-|day_id                               |integer     |                        null:false|
+|prefecture_id                        |integer     |                        null:false|
+|deliveryday_id                       |integer     |                        null:false|
 |price                              |integer     |                        null:false|
-|user                              |references  |                                   |
+|user                              |references  |  null:false         foreign_key: true|
 
 ### Association
 
-- belongs_to :user
-- has_many :item 
+- belongs_to :users
+- has_one :order
 
-## adresses table
+## addresses table
 
 | Column           | Type        | Options                        |
 |------------------|-------------|--------------------------------|
@@ -49,16 +50,16 @@
 |house_number      |string     |                        null:false|
 |building_name     |string     |                                  |
 |phone_number      |string     |                        null:false|
-|orders            |reference |                                   |
-
-### Association
-
-- belongs_to :product
-- belongs_to :user
+|order            |references |     foreign_key: true   null:false|
 
 ### orders table
 
 | Column           | Type        | Options                        |
 |------------------|-------------|--------------------------------|
-| user             |references |                                |
-| items            |references |                                |
+| user             |references |   foreign_key: true   null:false|
+| product            |references |    foreign_key: true  null:false |
+### Association
+
+- belongs_to :user
+- belongs_to :product
+- has_one :adress
