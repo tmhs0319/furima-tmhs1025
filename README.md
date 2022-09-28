@@ -60,5 +60,5 @@
 
 | Column           | Type        | Options                        |
 |------------------|-------------|--------------------------------|
-| user             |references型 |                                |
-| items            |references型 |                                |
+| user             |references |                                |
+| items            |references |                                |
